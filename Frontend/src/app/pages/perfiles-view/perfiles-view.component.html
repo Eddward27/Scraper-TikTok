@@ -1,0 +1,52 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                <a href="/">Perfiles</a>
+            </h1>
+
+            <div class="list-menu escroll">
+                <a class="list-menu-item" *ngFor="let perfil of perfiles" [routerLink]="['/perfiles', perfil.idPerfil]" routerLinkActive="is-active">
+                    <p>{{ perfil.username }}</p>
+                </a>
+            </div>
+
+            <button class="button is-primary has-text-white" routerLink="/new-scrap">+ Nuevo Perfil</button>
+        </div>
+        <div class="task-list-container has-background-light">
+            <h1 class="title has-text-primary">
+                <a href="/perfiles/{{ perfilInfo.idPerfil }}">Información</a>
+            </h1>
+            <p><a href="{{ perfilInfo.url }}" target="_blank" rel="noopener noreferrer"><img width="200" height="200" src="{{ perfilInfo.img_url }}"></a></p>
+            <p>Status Info: <strong>{{ perfilInfo.status }}</strong></p>
+            <p>Fecha Info: <strong>{{ perfilInfo.date }}</strong> <span id="fecha"></span></p>
+            <p><br></p>
+            <p>Nombre Cuenta: {{ perfilInfo.nombre_cuenta }}</p>
+            <p>Username: {{ perfilInfo.username }}</p>
+            <p>Descripción: {{ perfilInfo.descripcion }}</p>
+            <p>Links compartidos: {{ perfilInfo.links }}</p>
+            <p>URL: <a href="{{ perfilInfo.url }}" target="_blank" rel="noopener noreferrer">{{ perfilInfo.url }}</a></p>
+            <p>Siguiendo: {{ perfilInfo.siguiendo }}</p>
+            <p>Seguidores: {{ perfilInfo.seguidores }}</p>
+            <p>Me gusta: {{ perfilInfo.me_gusta }}</p>
+            <p>N° Videos: {{ perfilInfo.videos }}</p>
+            <div class="field is-grouped is-grouped-centered">
+              <p class="control">
+                <a class="button is-info has-text-white is-normal" [routerLink]="['/perfiles/', perfilInfo.idPerfil, 'videos']">
+                    Info Videos
+                </a>
+              </p>
+              <p class="control">
+                <button class="button is-link has-text-white is-normal" [disabled]="perfilInfo.busy" (click)="scrapPerfil(perfilInfo.username)">
+                  Actualizar Scrap
+                </button>
+              </p>
+              <p class="control">
+                <button class="button is-link has-text-white is-normal" [disabled]="perfilInfo.busy" (click)="dataVideos(perfilInfo.idPerfil, perfilInfo.fileName)">
+                  Descargar Información Videos
+                </button>
+              </p>
+            </div>
+        </div>
+    </div>
+</div>

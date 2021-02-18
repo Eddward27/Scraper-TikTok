@@ -1,0 +1,3 @@
+#[Min] [Hr] [Día] [Mes] [Día (Semana)]
+# Todos los días a media noche (Hora Docker: GTM)
+0 0 * * * python /scraper/main.py > /proc/1/fd/1 2>/proc/1/fd/2

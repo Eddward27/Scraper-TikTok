@@ -1,0 +1,65 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                <a href="/">Perfiles</a>
+            </h1>
+            <div class="list-menu escroll">
+                <a class="list-menu-item" *ngFor="let perfil of perfiles" [routerLink]="['/perfiles', perfil.idPerfil]" routerLinkActive="is-active">
+                    <p>{{ perfil.username }}</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white" routerLink="/new-scrap">+ Nuevo Perfil</button>
+        </div>
+        <div class="escroll task-list-container has-background-light">
+            <h1 class="title has-text-primary">
+                <a href="/perfiles/{{ videosDet[0].idPerfil }}/videos/{{ videosDet[0].idVideo }}">Detalle de video: {{ videosDet[0].video_n }}</a>
+            </h1>
+            <br>
+            <a class="subtitle"href="{{ videosDet[0].url }}" target="_blank" rel="noopener noreferrer">{{ videosDet[0].url }}</a>
+            <br>
+            <h2 class="subtitle">
+                <a href="/perfiles/{{ videosDet[0].idPerfil }}/videos">Volver</a>
+            </h2>
+            <br>
+            <table id="video" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th><span title="Día Información"><i class="material-icons">today</i></span></th>
+                        <th><span title="Descripción">Descripción</span></th>
+                        <th><span title="Música"><i class="material-icons">music_note</i></span></th>
+                        <th><span title="Vistas"><i class="material-icons">visibility</i></span></th>
+                        <th><span title="Me Gusta"><img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/unlike-86ec8ddb5ec14e3018506c5c61e05cf7.svg"></span></th>
+                        <th><span title="Comentarios"><img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/comment-9218073a5caa0c791043788b1808a679.svg"></span></th>
+                        <th><span title="Engagement"><i class="material-icons">people</i></span></th>
+                        <th><span title="Crecimiento Vistas"><i class="material-icons">trending_up</i><i class="material-icons">visibility</i></span></th>
+                        <th><span title="Crecimiento Me Gusta"><i class="material-icons">trending_up</i><img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/unlike-86ec8ddb5ec14e3018506c5c61e05cf7.svg"></span></th>
+                        <th><span title="Crecimiento Comentarios"><i class="material-icons">trending_up</i><img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/comment-9218073a5caa0c791043788b1808a679.svg"></span></th>
+                        <th><span title="Crecimiento Engagement"><i class="material-icons">trending_up</i><i class="material-icons">people</i></span></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let videoDet of videosDet">
+                    <tr>
+                        <td>{{ videoDet.dia }}</td>
+                        <td>{{ videoDet.descripcion }}</td>
+                        <td>{{ videoDet.musica }}</td>
+                        <td>{{ videoDet.vistas }}</td>
+                        <td>{{ videoDet.me_gusta }}</td>
+                        <td>{{ videoDet.comentarios }}</td>
+                        <td>{{ videoDet.engagement }}</td>
+                        <td>{{ videoDet.crecimientoV }}</td>
+                        <td>{{ videoDet.crecimientoMG }}</td>
+                        <td>{{ videoDet.crecimientoC }}</td>
+                        <td>{{ videoDet.crecimientoE }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>

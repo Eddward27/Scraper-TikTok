@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+    tiktok_scrap:
+        build: .
+        image: reg.analitic.cl/tiktok_scrap
+        network_mode: "host"
+        container_name: tiktok_scrap
