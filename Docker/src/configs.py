@@ -3,6 +3,12 @@ url_base = "https://www.tiktok.com/@"
 url = "https://www.tiktok.com/"
 login_url = "https://www.tiktok.com/login/phone-or-email/email"
 
+#Check pagina captcha
+captcha_check = 'verify-wrap'
+
+#Check usuario existe
+usuario_check = 'error-page'
+
 #Cambio versión TikTok
 xpath_cuad = '//*[@id="main"]/div[2]/div[2]/div/main/div[1]/div[1]/div'
 

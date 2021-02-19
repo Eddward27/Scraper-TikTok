@@ -31,4 +31,5 @@ En `Frontend/src/app` se encuentran los componentes del proyecto
 En las carpetas que se encuentran en `Frontend/src/app/pages` se encuentran las distintas vistas que contiene el proyecto y en cada una de ellas están los archivos `component.html` que contiene la estructura de la página y `component.ts` que contiene las funciones usadas en las distintas vistas que llaman a los servicios para obtener la información desde la base de datos
 #
 Autor: Matías Eduardo Allende Pino
+#
 matias.allende.p@mail.pucv.cl

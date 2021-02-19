@@ -1,9 +1,10 @@
 FROM python:3
 ENV DEBIAN_FRONTEND="noninteractive"
 
+# NO FUNCIONA :c
 # Usar zona horaria de Chile
-ENV TZ=America/Santiago
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# ENV TZ=America/Santiago
+# RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Preparación para instalar dependencias
 RUN apt-get update

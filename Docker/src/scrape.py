@@ -19,11 +19,19 @@ def scrap_tiktok(mydb, mycursor, options, query):
     #Captcha check
     try:
         #El captcha es mover una pieza de rompecabezas a cierta posición, no pude completarlo desde selenium
-        captcha = driver.find_element(By.CLASS_NAME, 'verify-wrap')
+        captcha = driver.find_element(By.CLASS_NAME, captcha_check)
         print('ERROR: Captcha encontrado!!')
         return
-    except Exception as e:
+    except:
         print('No hay captcha ✓✓')
+
+    #Verificar si el usuario existe
+    try:
+        usuario_non = driver.find_element(By.CLASS_NAME, usuario_check)
+        print('ERROR: El usuario NO existe!!')
+        return
+    except:
+        print('Usuario existe ✓✓')
 
     #Check version de TikTok [Feed o Cuadrícula]
     try:
@@ -151,6 +159,7 @@ def scrap_tiktok(mydb, mycursor, options, query):
                 video_mg = str2num(driver.find_element(By.XPATH, xpath_video_mg).text)
                 video_com = str2num(driver.find_element(By.XPATH, xpath_video_com).text)
             except:
+                # El link del video es correcto, pero la página carga como si el video no existiera
                 print('^ LINK ERROR ^')
                 video_musica = 'LINK ERROR'
                 video_desc_meta = 'LINK ERROR'
