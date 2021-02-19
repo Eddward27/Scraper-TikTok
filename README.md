@@ -29,6 +29,12 @@ En `Frontend/src/app` se encuentran los componentes del proyecto
 - `web-request.service.ts`: Contiene los métodos necesarios para realizar los request a la `API` y también se define la ruta de acceso a la API, si se quiere cambiar, puede hacerlo desde este archivo
 
 En las carpetas que se encuentran en `Frontend/src/app/pages` se encuentran las distintas vistas que contiene el proyecto y en cada una de ellas están los archivos `component.html` que contiene la estructura de la página y `component.ts` que contiene las funciones usadas en las distintas vistas que llaman a los servicios para obtener la información desde la base de datos
+
+## Python Scraping
+Para ejecutar el script de python existen 2 opciones:
+- Obtener queries desde base de datos: De esta forma se realiza el scraping de todos los perfiles que existen en la tabla `queries` de la base de datos `TikTok`, para esto hay que ejecutar el comando `python main.py` sin argumentos, esto es lo que hace el contenedor Docker a medianoche (Zona horaria de Docker: GMT).
+- Query on demand: Realiza el scraping de una cuenta en específico y de paso la agrega a la tabla `queries` de la base de datos `TikTok` para que en posteriores scrap desde la base de datos se haga scrap de esta cuenta también, para esto hay que ejecutar el comando `python main.py [Usuario TikTok]` cambiando `[Usuario TikTok]` por el nombre de usuario de alguna cuenta de TikTok, esto es lo que hace el botón de `+ Nuevo Perfil` y también los botones de `Actualizar Scrap` en cada página de perfil en Angular,
+
 #
 Autor: Matías Eduardo Allende Pino
 #
