@@ -1,6 +1,3 @@
--- docker exec -it [ID] bash --
--- docker run --shm-size 2g --network=host reg.analitic.cl/tiktok_scrap --
-
 -- Crear la base de datos --
 CREATE DATABASE TikTok;
 
